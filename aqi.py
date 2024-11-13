@@ -2,7 +2,6 @@ import main_functions
 import requests
 import folium
 
-"""TASK 6"""
 def get_api_key(filename):
     # Gather data from the JSON file
     data = main_functions.read_from_file(filename)
@@ -13,7 +12,6 @@ my_aqi_api_key = get_api_key("api_key.json")
 
 print(my_aqi_api_key)
 
-"""TASK 7"""
 def get_aqi_data(api_key):
     url = "http://api.airvisual.com/v2/nearest_city?key="
     url_aqi = url + api_key
@@ -30,7 +28,6 @@ def get_aqi_data(api_key):
 
 get_aqi_data(my_aqi_api_key)
 
-"""TASK 8"""
 def generate_map(data_filename,zoom_start):
     aqi_data = main_functions.read_from_file(data_filename)
     lat = aqi_data['data']['location']['coordinates'][1]
@@ -45,7 +42,6 @@ def generate_map(data_filename,zoom_start):
 
 generate_map("aqi.json", 10)
 
-"""TASK 9"""
 def display_aqi_info(data_filename):
     aqi_data = main_functions.read_from_file(data_filename)
     tempC = aqi_data['data']['current']['weather']['tp']
